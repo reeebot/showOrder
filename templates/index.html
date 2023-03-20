@@ -1,0 +1,25 @@
+<!-- Starter Template Bootstrap 4 --->
+<!doctype html>
+<html lang="en">
+	<head>
+		<script>
+			$SCRIPT_ROOT = {{ request.script_root|tojson }};
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script>
+			setInterval(function(){
+				$("#show_order").load($SCRIPT_ROOT +"/static/show_order_data.html");
+			}, 2000) /* time in milliseconds (ie 2 seconds)*/
+		</script>
+		<title>TINY BREAD BOX</title>
+	</head>
+	<body>
+		<center>
+		<div id="show_order">
+		</div>
+		<div>
+			<h1>THANK YOU FOR YOUR PURCHASE!</h1>
+		</div>
+		</center>
+	</body>
+</html>
