@@ -1,3 +1,3 @@
 # showOrder
 
-<img src="logo.png"></img>
+<img src="static/logo.png"></img>
