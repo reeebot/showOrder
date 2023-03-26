@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import json, os, requests, shutil
+import urllib.request
 from datetime import datetime, timedelta
 from flask import Flask, jsonify, make_response, Response, request, redirect, session, url_for, render_template, __version__
 #from pyngrok import ngrok
@@ -34,14 +35,14 @@ def home():
 @app.route("/get_order", methods=['POST','GET'])
 def get_order():
     print("> > > GET ORDER < < <")
-    #order_data = request.json
-    #order_url = order_data['value'][0]['order_url']
-    order_url = 'http://www.google.com/index.html'
+    order_data = request.json
+    order_url = order_data['data']['object']['payment']['receipt_url']
 
-    r = requests.get(order_url, allow_redirects=True)
-    open('static/show_order_data.html', 'wb').write(r.content)
+    req = urllib.request.Request(order_url)
+    req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36')
+    r = urllib.request.urlopen(req) 
 
-    print(order_url)
+    open('static/show_order_data.html', 'wb').write(r.read())
     return Response(status=200, content_type="text/plain")
 
 @app.route("/door_closed", methods=['GET','POST'])
