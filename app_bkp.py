@@ -18,8 +18,8 @@ app = Flask(__name__, static_folder=STATIC_DIR)
 
 
 # NGROK #
-# ngrok.set_auth_token("")
-# http_tunnel = ngrok.connect(5000, bind_tls=True)
+# ngrok.set_auth_token("1lkRMJVY5ULy72xJIQ2pVgbCvY5_6CNYvbLDmsk4bbKkNx1WY")
+# http_tunnel = ngrok.connect('https://localhost:5000/', bind_tls=True)
 
 
 ############
@@ -62,4 +62,4 @@ def door_closed():
     # return make_response(jsonify({'error': 'Not found'}), 404)
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', ssl_context='adhoc')
+    app.run() #host='0.0.0.0', ssl_context='adhoc'
