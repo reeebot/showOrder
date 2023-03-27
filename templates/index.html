@@ -7,8 +7,9 @@
 		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 		<script>
+			$.ajaxSetup({ cache: false });
 			setInterval(function(){
-				$("#show_order").load($SCRIPT_ROOT +"/static/show_order_data.html");
+				$("#show_order").load($SCRIPT_ROOT + "static/show_order_data.html");
 			}, 2000) /* time in milliseconds (ie 2 seconds)*/
 		</script>
 		<title>TINY BREAD BOX</title>

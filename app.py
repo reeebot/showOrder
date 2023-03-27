@@ -5,6 +5,7 @@ import json, os, requests, shutil
 import urllib.request
 from datetime import datetime, timedelta
 from flask import Flask, jsonify, make_response, Response, request, redirect, session, url_for, render_template, __version__
+from flask_cors import CORS
 #from pyngrok import ngrok
 
 
@@ -16,7 +17,7 @@ from flask import Flask, jsonify, make_response, Response, request, redirect, se
 APP_NAME = 'showOrder'
 STATIC_DIR = os.path.join(os.path.dirname(__file__), 'static')
 app = Flask(__name__, static_folder=STATIC_DIR)
-
+CORS(app)
 
 # NGROK #
 # ngrok.set_auth_token("")
